@@ -1,0 +1,148 @@
+/* ========================================================== */
+/* 🌟 KEMET AI - CLEAN & DYNAMIC DARK THEME CSS STYLE */
+/* ========================================================== */
+
+/* تعريف المتغيرات الأساسية */
+:root {
+    --neon-main: #00ffaa;      /* النيون الأخضر الأساسي */
+    --neon-accent: #00ccff;    /* نيون أزرق ثانوي */
+    --dark-bg: #0d1117;        /* خلفية داكنة احترافية */
+    --card-bg: #161b22;        /* خلفية الكونتينر */
+    --text-light: #f0f6fc;     /* نص فاتح وواضح */
+}
+
+/* ========================================================== */
+/* 1. الخلفية المتحركة (DYNAMIC BACKGROUND) */
+/* ========================================================== */
+
+/* Keyframes لحركة التدرج (كما في صورتك، لكن باسم قياسي) */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    /* 🛑 استخدام الألوان التي ظهرت في صورتك للتدرج */
+    background: linear-gradient(-45deg, #ff6b6b, #f8c471, #5f27cd, #00cec9); 
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite alternate; 
+    
+    font-family: 'Poppins', sans-serif; 
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================================== */
+/* 2. الكونتينر (CARD/CONTAINER STYLE) */
+/* ========================================================== */
+
+.container {
+    background: rgba(30, 30, 30, 0.9); /* خلفية شبه شفافة داكنة */
+    border: 2px solid #00ffb3;
+    border-radius: 16px;
+    padding: 40px;
+    width: 320px;
+    text-align: center;
+    color: var(--text-light);
+
+    /* 🛑 تقليل الشادو ليكون ناعمًا فقط */
+    box-shadow: 0 0 15px rgba(0, 255, 179, 0.2); 
+    animation: fadeIn 0.7s ease; 
+}
+
+/* حركة الظهور */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 25px;
+    /* 🛑 إزالة الشادو من اللوجو */
+}
+
+.container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #00ffb3;
+}
+
+/* ========================================================== */
+/* 3. حقول الإدخال (INPUTS) */
+/* ========================================================== */
+
+.container input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2e3137; /* لون أغمق بقليل */
+    color: var(--text-light);
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.container input:focus {
+    background: #3a3f45;
+    /* ظل خفيف وواضح عند التركيز */
+    box-shadow: 0 0 10px var(--neon-accent); 
+    border: 1px solid var(--neon-accent);
+}
+
+/* ========================================================== */
+/* 4. الأزرار (BUTTONS - MODERN) */
+/* ========================================================== */
+
+.container button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background: linear-gradient(90deg, #00ffb3, #00ccff); /* تدرج الألوان المفضل لديك */
+    color: #000;
+}
+
+.container button:hover {
+    /* عكس التدرج للحركة */
+    background: linear-gradient(90deg, #00ccff, #00ffb3); 
+    transform: translateY(-3px) scale(1.01); /* حركة رفع خفيفة */
+    /* شادو ناعم وقليل */
+    box-shadow: 0 8px 20px rgba(0, 204, 255, 0.3); 
+}
+
+/* ========================================================== */
+/* 5. النصوص والروابط (LINKS) */
+/* ========================================================== */
+
+.container p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+
+.container a {
+    color: #00ffb3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.container a:hover {
+    text-decoration: underline;
+    color: #00ccff;
+}
