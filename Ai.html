@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEMET AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- طبقة التعتيم للشريط الجانبي -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- الشريط الجانبي -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-sidebar" id="close-sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <button class="new-chat-btn" id="new-chat-btn">
+            <i class="fas fa-plus"></i>
+            <span class="sidebar-text">محادثة جديدة</span>
+        </button>
+        
+        <div class="history">
+            <div class="history-item active">
+                <i class="fas fa-chart-line"></i>
+                <span class="sidebar-text">تحليل بيانات المبيعات</span>
+            </div>
+            <div class="history-item">
+                <i class="fas fa-file-alt"></i>
+                <span class="sidebar-text">تقرير الأداء الشهري</span>
+            </div>
+            <div class="history-item">
+                <i class="fas fa-users"></i>
+                <span class="sidebar-text">تحليل سلوك العملاء</span>
+            </div>
+            <div class="history-item">
+                <i class="fas fa-chart-bar"></i>
+                <span class="sidebar-text">توقعات الإيرادات</span>
+            </div>
+            <div class="history-item">
+                <i class="fas fa-database"></i>
+                <span class="sidebar-text">تحليل قاعدة البيانات</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-container">
+        <!-- الرأس -->
+        <div class="header">
+            <button class="toggle-sidebar" id="toggle-sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="img/download.png" alt="شعار المشروع">
+                </div>
+                <span class="sp">محلل البيانات الذكي</span>
+            </div>
+            <div></div> <!-- عنصر نائب للمحاذاة -->
+        </div>
+
+        <!-- منطقة المحادثة -->
+        <div class="chat-container" id="chat-container">
+            <!-- رسالة ترحيبية -->
+            <div class="welcome-message">
+                <div class="welcome-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>مرحباً بك في نظام تحليل البيانات بالذكاء الاصطناعي</h2>
+                <p>أنا مساعدك الذكي لتحليل البيانات واستخلاص الرؤى القيمة. كيف يمكنني مساعدتك اليوم؟</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4>تحليل البيانات</h4>
+                        <p>تحليل شامل لمجموعات البيانات</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4>التصور البياني</h4>
+                        <p>إنشاء رسوم بيانية تفاعلية</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>اكتشاف الأنماط</h4>
+                        <p>اكتشاف الاتجاهات والأنماط الخفية</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم إدخال البيانات -->
+            <div class="data-input-section">
+                <h3><i class="fas fa-database"></i> إدخال البيانات للتحليل</h3>
+                
+                <!-- منطقة رفع الملفات -->
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h4>اسحب وأفلت ملفاتك هنا أو انقر للرفع</h4>
+                    <p>يمكنك رفع ملفات Excel, CSV, JSON أو إدخال البيانات يدوياً</p>
+                    <div class="file-types">
+                        <span class="file-type">Excel (.xlsx, .xls)</span>
+                        <span class="file-type">CSV (.csv)</span>
+                        <span class="file-type">JSON (.json)</span>
+                        <span class="file-type">نص (.txt)</span>
+                    </div>
+                    <input type="file" id="file-input" accept=".xlsx,.xls,.csv,.json,.txt" style="display: none;">
+                </div>
+
+                <!-- إدخال البيانات يدوياً -->
+                <div class="manual-data-input">
+                    <h4>أو أدخل البيانات يدوياً:</h4>
+                    <table class="data-table" id="data-table">
+                        <thead>
+                            <tr>
+                                <th>الشهر</th>
+                                <th>المبيعات</th>
+                                <th>التكاليف</th>
+                                <th>الأرباح</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" value="يناير" placeholder="الشهر"></td>
+                                <td><input type="number" value="15000" placeholder="المبيعات"></td>
+                                <td><input type="number" value="8000" placeholder="التكاليف"></td>
+                                <td><input type="number" value="7000" placeholder="الأرباح"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="فبراير" placeholder="الشهر"></td>
+                                <td><input type="number" value="18000" placeholder="المبيعات"></td>
+                                <td><input type="number" value="9000" placeholder="التكاليف"></td>
+                                <td><input type="number" value="9000" placeholder="الأرباح"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="مارس" placeholder="الشهر"></td>
+                                <td><input type="number" value="22000" placeholder="المبيعات"></td>
+                                <td><input type="number" value="11000" placeholder="التكاليف"></td>
+                                <td><input type="number" value="11000" placeholder="الأرباح"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <button class="add-row-btn" id="add-row-btn">
+                        <i class="fas fa-plus"></i> إضافة صف جديد
+                    </button>
+                </div>
+
+                <!-- أزرار التحليل -->
+                <div class="input-actions">
+                    <button class="analyze-btn" id="analyze-btn">
+                        <i class="fas fa-chart-line"></i> تحليل البيانات
+                    </button>
+                    <button class="action-btn" id="clear-data-btn">
+                        <i class="fas fa-trash"></i> مسح البيانات
+                    </button>
+                    <button class="action-btn" id="sample-data-btn">
+                        <i class="fas fa-download"></i> بيانات نموذجية
+                    </button>
+                </div>
+            </div>
+
+            <!-- اقتراحات سريعة -->
+            <div class="suggestions">
+                <div class="suggestion-chip">تحليل بيانات المبيعات</div>
+                <div class="suggestion-chip">إنشاء تقرير أداء</div>
+                <div class="suggestion-chip">تحليل سلوك العملاء</div>
+                <div class="suggestion-chip">توقعات الإيرادات</div>
+            </div>
+
+            <!-- مؤشر الكتابة (يظهر عند استجابة الذكاء الاصطناعي) -->
+            <div class="message ai-message" id="typing-indicator" style="display: none;">
+                <div class="avatar ai-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- منطقة الإدخال -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea class="input-field" placeholder="اكتب رسالتك هنا... أو اختر أحد الاقتراحات أعلاه" id="user-input"></textarea>
+                <button class="send-btn" id="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- التذييل -->
+        <div class="footer">
+ نظام تحليل البيانات بالذكاء الاصطناعي - الإصدار 1.0 ء تم التطوير بواسطه eng/ahmed hussin 
+        </div>
+    </div>
+
+  <script src="JS/index.js"></script>
+</body>
+</html>
